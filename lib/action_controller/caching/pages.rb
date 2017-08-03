@@ -61,7 +61,8 @@ module ActionController
         class_attribute :page_cache_compression
         self.page_cache_compression ||= false
 
-        self.default_static_extension = ''
+        class_attribute :default_static_extension
+        self.default_static_extension = nil
       end
 
       class PageCache #:nodoc:
@@ -150,7 +151,7 @@ module ActionController
             end
 
             if File.extname(name).empty?
-              name + (extension || default_extension)
+              name + (default_extension || extension)
             else
               name
             end
