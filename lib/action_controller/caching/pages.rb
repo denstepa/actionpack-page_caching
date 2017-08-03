@@ -60,6 +60,8 @@ module ActionController
         # or <tt>:best_speed</tt> or an integer configuring the compression level.
         class_attribute :page_cache_compression
         self.page_cache_compression ||= false
+
+        self.default_static_extension = ''
       end
 
       class PageCache #:nodoc:
